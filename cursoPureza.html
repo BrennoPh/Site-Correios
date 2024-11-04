@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stiles/curso.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+    <title>Funções Puras</title>
+</head>
+<header>
+  <h1>EdTech</h1>
+  <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>O que são Funções Puras?</h1>
+    <p>
+        Uma função pura é uma função que, dado um mesmo conjunto de entradas, sempre
+        produz a mesma saída e não causa efeitos colaterais. Vamos analisar cada uma dessas
+        características:
+    </p>
+    <h2>1. Determinismo:</h2>
+    <ul>
+        <li>
+            Uma função pura sempre retorna o mesmo resultado para os mesmos
+            parâmetros. Por exemplo, se você tem uma função que soma dois números,
+            como <code>soma(a, b)</code>, sempre que você chamar <code>soma(2, 3)</code>, o resultado
+            será 5. Isso é previsível e fácil de entender.
+        </li>
+    </ul>
+    <h2>2. Sem Efeitos Colaterais:</h2>
+    <ul>
+        <li>
+            Funções puras não alteram nenhum estado externo. Isso significa que elas
+            não modificam variáveis fora de seu escopo, não escrevem em arquivos, não
+            alteram bancos de dados e não interagem com o mundo exterior.
+        </li>
+        <li>
+            Continuando com o exemplo da soma, se <code>soma(a, b)</code> apenas retorna <code>a + b</code> e não altera nada fora dela, é uma função pura.
+        </li>
+    </ul>
+    
+    <h2>Vantagens das Funções Puras</h2>
+    <h3>1. Testabilidade:</h3>
+    <ul>
+        <li>
+            Funções puras são mais fáceis de testar, já que você só precisa verificar a
+            entrada e a saída. Não se preocupe com o estado global ou outros efeitos.
+        </li>
+    </ul>
+    <h3>2. Composição:</h3>
+    <ul>
+        <li>
+            Elas podem ser facilmente compostas para formar funções mais complexas.
+            Se você tem duas funções puras, <code>f</code> e <code>g</code>, você pode criar uma nova função
+            <code>h(x) = f(g(x))</code> sem problemas.
+        </li>
+    </ul>
+    <h3>3. Paralelismo:</h3>
+    <ul>
+        <li>
+            Como não há efeitos colaterais, é mais seguro executar funções puras em
+            paralelo, pois não há risco de uma função interferir na execução de outra.
+        </li>
+    </ul>
+
+    <p>
+        Funções puras são fundamentais em programação funcional e trazem muitos benefícios em
+        termos de previsibilidade, testabilidade e facilidade de composição. Ao se concentrar em
+        criar funções puras, você pode escrever um código mais limpo e gerenciável.
+    </p>
+
+    <h2>Exemplos:</h2>
+    <pre>
+        <code>
+function soma(a, b) {
+    return a + b;
+}
+// Testando a função
+console.log(soma(2, 3)); // 5
+console.log(soma(2, 3)); // 5 (mesmo resultado sempre)
+
+function quadrado(x) {
+    return x * x;
+}
+// Testando a função
+console.log(quadrado(4)); // 16
+console.log(quadrado(4)); // 16 (sempre o mesmo resultado)
+        </code>
+    </pre>
+
+    <h2>Aplicação:</h2>
+    <h3>Cenário: Calculadora de Preço de Produtos</h3>
+    <p>
+        Vamos construir uma pequena aplicação que calcula o preço total de produtos em um
+        carrinho de compras.
+    </p>
+    <h3>Estrutura do Projeto</h3>
+    <ul>
+        <li>
+            <strong>Funções Puramente Funcionais:</strong>
+            <ul>
+                <li><code>calcularPrecoTotal(produtos)</code>: calcula o preço total sem alterar o estado global.</li>
+                <li><code>adicionarProduto(produtos, produto)</code>: adiciona um produto ao carrinho.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Funções Impuras:</strong>
+            <ul>
+                <li><code>atualizarCarrinho(produto)</code>: modifica uma variável global que representa o carrinho.</li>
+            </ul>
+        </li>
+    </ul>
+    <pre>
+        <code>
+function calcularPrecoTotal(produtos) {
+    return produtos.reduce((total, produto) => total + produto.preco, 0);
+}
+
+function adicionarProduto(produtos, produto) {
+    return [...produtos, produto];
+}
+
+// Exemplo de uso
+const produtos = [
+    { nome: "Produto A", preco: 50 },
+    { nome: "Produto B", preco: 30 }
+];
+const novoProduto = { nome: "Produto C", preco: 20 };
+const novoCarrinho = adicionarProduto(produtos, novoProduto);
+console.log(calcularPrecoTotal(novoCarrinho)); // 100
+        </code>
+    </pre>
+</body>
+</html>

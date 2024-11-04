@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+    <link rel="stylesheet" href="stiles/curso.css">
+    <title>Funções de Alta Ordem</title>
+</head>
+<header>
+  <h1>EdTech</h1>
+  <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>O que são funções de alta ordem?</h1>
+    <p>
+        Funções de alta ordem são aquelas que podem receber outras funções como argumentos
+        ou retornar uma função como resultado. Esse conceito é comum em linguagens de
+        programação funcional, como JavaScript, Python, Haskell, entre outras.
+    </p>
+    <h2>Características principais:</h2>
+    <ul>
+        <li>Receber funções como argumentos: Você pode passar uma função para outra função.</li>
+        <li>Retornar funções: Uma função pode retornar outra função.</li>
+    </ul>
+    
+    <h2>Vantagens das Funções de Alta Ordem</h2>
+    <ul>
+        <li>Reuso de Código: Elas permitem que você reutilize lógica sem duplicar código.</li>
+        <li>Composição: Você pode compor funções de maneira mais fácil, criando funções complexas a partir de funções simples.</li>
+        <li>Legibilidade: O uso de funções de alta ordem pode tornar seu código mais expressivo e fácil de entender.</li>
+    </ul>
+    
+    <h2>Aplicações Comuns</h2>
+    <ul>
+        <li>Map: Uma função de alta ordem que aplica uma função a cada elemento de um array.</li>
+        <li>Filter: Filtra elementos de um array com base em uma condição.</li>
+        <li>Reduce: Reduz um array a um único valor, aplicando uma função a cada elemento.</li>
+    </ul>
+    
+    <p>
+        Funções de alta ordem são uma ferramenta poderosa em programação que permite maior
+        flexibilidade e expressividade no seu código. Elas ajudam a estruturar seu programa de
+        maneira modular e reutilizável, tornando a manipulação de dados e a criação de lógica mais
+        eficiente.
+    </p>
+    
+    <h2>Exemplos:</h2>
+    <h3>1. Função que recebe outra função como argumento</h3>
+    <pre>
+        <code>
+function aplicarOperacao(array, operacao) {
+    let resultado = [];
+    for (let i = 0; i < array.length; i++) {
+        resultado.push(operacao(array[i]));
+    }
+    return resultado;
+}
+
+function dobro(x) {
+    return x * 2;
+}
+
+const numeros = [1, 2, 3, 4];
+const numerosDobrado = aplicarOperacao(numeros, dobro);
+console.log(numerosDobrado); // [2, 4, 6, 8]
+        </code>
+    </pre>
+    <p>Nesse exemplo:</p>
+    <ul>
+        <li>aplicarOperacao é uma função de alta ordem que aceita uma função (operacao) como argumento.</li>
+        <li>dobro é a função que define a operação que queremos aplicar.</li>
+    </ul>
+
+    <h3>2. Função que retorna outra função</h3>
+    <pre>
+        <code>
+function criarMultiplicador(fator) {
+    return function(numero) {
+        return numero * fator;
+    };
+}
+
+const multiplicarPor3 = criarMultiplicador(3);
+console.log(multiplicarPor3(5)); // 15
+        </code>
+    </pre>
+    <p>Nesse exemplo:</p>
+    <ul>
+        <li>criarMultiplicador é uma função que retorna uma nova função.</li>
+        <li>A nova função multiplicará qualquer número pelo fator fornecido quando a função é chamada.</li>
+    </ul>
+
+    <h2>Aplicação:</h2>
+    <h3>Cenário</h3>
+    <p>
+        Suponha que temos um array de objetos representando produtos, onde cada produto tem
+        um nome, uma categoria e um preço. Vamos utilizar funções de alta ordem para:
+    </p>
+    <ul>
+        <li>Filtrar produtos por categoria.</li>
+        <li>Aplicar um desconto a esses produtos.</li>
+        <li>Calcular o preço total dos produtos filtrados e descontados.</li>
+    </ul>
+    
+    <pre>
+        <code>
+// Array de produtos
+const produtos = [
+    { nome: "Camiseta", categoria: "Roupas", preco: 50 },
+    { nome: "Calça", categoria: "Roupas", preco: 80 },
+    { nome: "Tênis", categoria: "Calçados", preco: 120 },
+    { nome: "Relógio", categoria: "Acessórios", preco: 300 },
+    { nome: "Boné", categoria: "Acessórios", preco: 40 }
+];
+
+// Função para filtrar produtos por categoria
+function filtrarPorCategoria(produtos, categoria) {
+    return produtos.filter(produto => produto.categoria === categoria);
+}
+
+// Função para aplicar desconto
+function aplicarDesconto(produtos, desconto) {
+    return produtos.map(produto => {
+        return { ...produto, preco: produto.preco * (1 - desconto) };
+    });
+}
+
+// Função para calcular o preço total
+function calcularPrecoTotal(produtos) {
+    return produtos.reduce((total, produto) => total + produto.preco, 0);
+}
+
+// Aplicação do conceito
+const categoriaEscolhida = "Acessórios";
+const desconto = 0.10; // 10%
+
+// Filtra produtos pela categoria
+const produtosFiltrados = filtrarPorCategoria(produtos, categoriaEscolhida);
+console.log("Produtos filtrados:", produtosFiltrados);
+
+// Aplica desconto nos produtos filtrados
+const produtosComDesconto = aplicarDesconto(produtosFiltrados, desconto);
+console.log("Produtos com desconto:", produtosComDesconto);
+
+// Calcula o preço total
+const precoTotal = calcularPrecoTotal(produtosComDesconto);
+console.log("Preço total após desconto:", precoTotal.toFixed(2));
+        </code>
+    </pre>
+
+    <p>Array de produtos: Contém objetos que representam os produtos, cada um com nome, categoria e preço.</p>
+    <h3>Filtrar por categoria:</h3>
+    <p>A função <code>filtrarPorCategoria</code> usa <code>filter</code> para retornar apenas os produtos que pertencem à categoria especificada.</p>
+    
+    <h3>Aplicar desconto:</h3>
+    <p>A função <code>aplicarDesconto</code> utiliza <code>map</code> para criar um novo array, onde o preço de cada produto é ajustado de acordo com o desconto.</p>
+    
+    <h3>Calcular preço total:</h3>
+    <p>A função <code>calcularPrecoTotal</code> utiliza <code>reduce</code> para somar os preços de todos os produtos, retornando o total.</p>
+</body>
+</html>

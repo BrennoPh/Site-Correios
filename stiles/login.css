@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #2C3639;
+    --cor-secundaria: #DCD7C9;
+    --cor-terciaria: #A27B5C;
+    --cor-hover: #3F4E4f;
+    --cor-botao-hover: #ac7f5d;
+
+    --fonte-primaria:  'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.a:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+header {
+  display: flex;
+    gap: 80px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    padding: 30px 0px 30px 130px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+}
+
+header h1 {
+  align-self: center;
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor-primaria);
+    padding: 10px 0;
+    font-family: var(--fonte-secundaria);
+}
+
+nav a {
+    color: var(--cor-terciaria);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #303c3f;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.botao-logout {
+  background-color: var(--cor-primaria);
+  color: var(--cor-terciaria); 
+  font-family: var(--fonte-primaria); 
+  border: 0;
+}
+.botao-logout:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.07);
+  transition: all 0.5s;
+}
+
+
+body {
+  font-family: var(--fonte-secundaria);
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px 20px;
+  background-color: var(--cor-primaria);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+  margin: 10px 0px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.logo {
+  width: 80px;
+  height: 50px;
+  align-self: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px 0px;
+  margin: 10px 0px;
+  background-color: var(--cor-terciaria);
+  border: 2px solid var(--cor-terciaria);
+  color: var(--cor-secundaria);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--cor-botao-hover);
+  transform: scale(1.07);
+  transition: all 0.5s;
+}

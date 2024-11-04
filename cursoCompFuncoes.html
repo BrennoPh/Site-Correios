@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+    <link rel="stylesheet" href="stiles/curso.css">
+    <title>O que é Composição de Funções?</title>
+</head>
+<header>
+  <h1>EdTech</h1>
+  <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>O que é Composição de Funções?</h1>
+    <p>
+        A composição de funções é um conceito matemático que também é muito utilizado na
+        programação. Em termos simples, a composição de funções envolve a aplicação de uma
+        função dentro de outra. Se temos duas funções, <code>f(x)</code> e <code>g(x)</code>, a composição
+        delas é denotada como <code>(f ∘ g)(x)</code>, que significa que primeiro aplicamos <code>g</code> 
+        e depois aplicamos <code>f</code> ao resultado de <code>g</code>.
+    </p>
+    
+    <h2>Como Funciona na Programação?</h2>
+    <p>
+        Em programação, a composição de funções permite que você crie funções mais complexas
+        a partir de funções mais simples.
+    </p>
+
+    <h2>Vantagens da Composição de Funções</h2>
+    <ul>
+        <li>Reusabilidade: Funções menores e bem definidas podem ser reutilizadas em diferentes composições.</li>
+        <li>Clareza: Compor funções pode tornar o código mais legível, já que você pode descrever operações complexas em termos de operações mais simples.</li>
+        <li>Manutenção: Se precisar mudar o comportamento de uma parte da lógica, você pode modificar apenas uma função, sem afetar as outras.</li>
+    </ul>
+
+    <h2>Exemplo:</h2>
+    <h3>Compondo as Funções</h3>
+    <pre>
+        <code>
+function compose(f, g) {
+    return function(x) {
+        return f(g(x));
+    };
+}
+const doubleThenAddThree = compose(addThree, double);
+        </code>
+    </pre>
+    <p>
+        Neste caso, estamos dizendo que queremos primeiro dobrar o número e depois adicionar 3.
+    </p>
+
+    <h3>Usando a Função Composta</h3>
+    <pre>
+        <code>
+const result = doubleThenAddThree(4); // Isso vai ser addThree(double(4))
+console.log(result); // Saída: 11
+        </code>
+    </pre>
+    <p>
+        <strong>Passo 1:</strong> <code>double(4)</code> retorna 8.<br>
+        <strong>Passo 2:</strong> <code>addThree(8)</code> retorna 11.
+    </p>
+
+    <h2>Aplicação</h2>
+    <h3>Cenário: Processamento de Preços de Produtos</h3>
+    <p>
+        Imagine que você tem um conjunto de produtos e precisa calcular o preço final após aplicar
+        um desconto e, em seguida, adicionar impostos.
+    </p>
+
+    <h3>1. Definindo as Funções</h3>
+    <p>Função para aplicar desconto (ex: 10%):</p>
+    <pre>
+        <code>
+function applyDiscount(price) {
+    return price * 0.9; // 10% de desconto
+}
+        </code>
+    </pre>
+    <p>Função para adicionar imposto (ex: 15%):</p>
+    <pre>
+        <code>
+function addTax(price) {
+    return price * 1.15; // 15% de imposto
+}
+        </code>
+    </pre>
+
+    <h3>2. Compondo as Funções</h3>
+    <p>
+        Vamos criar uma função que primeiro aplica o desconto e, em seguida, adiciona o imposto:
+    </p>
+    <pre>
+        <code>
+const finalPrice = compose(addTax, applyDiscount);
+        </code>
+    </pre>
+
+    <h3>3. Usando a Função Composta</h3>
+    <p>
+        Agora, vamos calcular o preço final de um produto que custa $100:
+    </p>
+    <pre>
+        <code>
+const originalPrice = 100;
+const result = finalPrice(originalPrice);
+console.log(`O preço final é: $${result.toFixed(2)}`); // Saída: O preço final é: $103.50
+        </code>
+    </pre>
+    
+    <h2>Explicação do Resultado</h2>
+    <p>
+        <strong>Passo 1:</strong> <code>applyDiscount(100)</code> retorna 90 (aplicando 10% de desconto).<br>
+        <strong>Passo 2:</strong> <code>addTax(90)</code> retorna 103.5 (adicionando 15% de imposto).
+    </p>
+</body>
+</html>

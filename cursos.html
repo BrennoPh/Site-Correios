@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos de Programação Funcional - Plataforma EdTech</title>
+    <link rel="stylesheet" href="stiles/cursos.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+</head>
+
+<header>
+    <img  class="logo" src="./imagens/logo.png" alt="">
+    <nav>
+        <!-- Barra de Navegação -->
+        <a href="./index.html">Home</a> 
+        <a href="./login.html">Login</a>
+        <a href="./cursos.html">Cursos</a>
+        <a href="./PgPerguntas.html">Quizzes</a>
+        <a href="./painel.html">Painel de Progresso</a>
+        <button class="botao-logout" id="logoutButton">Logout</button>
+    </nav>
+</header>
+
+<body>
+    <div class="courses-container">
+        <h2>Escolha um Tópico de Programação Funcional</h2>
+        <p id="usuarioInfo">Carregando informações do usuário...</p> <!-- Exibe o usuário logado aqui -->
+        <div class="course-list">
+            <div class="course-card">
+                <h3>Funções Puras</h3>
+                <p>Entenda o que são funções puras e como elas evitam efeitos colaterais.</p>
+                <a href="./cursoPureza.html" class="btn">Começar Curso</a>
+            </div>
+            <div class="course-card">
+                <h3>Imutabilidade</h3>
+                <p>Aprenda a importância da imutabilidade para garantir a consistência dos dados.</p>
+                <a href="./cursoImutabilidade.html" class="btn">Começar Curso</a>
+            </div>
+            <div class="course-card">
+                <h3>Funções de Alta Ordem</h3>
+                <p>Descubra como funções podem receber outras funções como argumentos ou retorná-las.</p>
+                <a href="./cursoAltaOrdem.html" class="btn">Começar Curso</a>
+            </div>
+            <div class="course-card">
+                <h3>Recursão</h3>
+                <p>Substitua laços convencionais por recursão para simplificar algoritmos complexos.</p>
+                <a href="./cursoRecursividade.html" class="btn">Começar Curso</a>
+            </div>
+            <div class="course-card">
+                <h3>Currying</h3>
+                <p>Transforme funções com múltiplos argumentos em uma cadeia de funções de um argumento.</p>
+                <a href="./cursoCurrying.html" class="btn">Começar Curso</a>
+            </div>
+            <div class="course-card">
+                <h3>Composição de Funções</h3>
+                <p>Entenda como combinar funções simples para construir funcionalidades complexas.</p>
+                <a href="./cursoCompFuncoes.html" class="btn">Começar Curso</a>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="scripts/logout.js"></script>
+    <script type="module" src="scripts/verificaLogin.js"></script> 
+</body>
+<!-- Rodapé -->
+<footer>
+    <p>&copy; 2024 Brenno, Emilly & Mariane - Todos os direitos reservados</p>
+</footer>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Plataforma EdTech</title>
+    <link rel="stylesheet" href="stiles/quiz.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+</head>
+<!-- Cabeçalho e Título -->
+<header>
+    <h1>EdTech</h1>
+    <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+  <div id="pontuacao"></div>
+  <div id="pontuacaoquiz"></div>
+  <div  class="quiz-container">
+    <div id="pergunta" class="question"></div>
+    <div id="opcoes" class="option"></div>
+  </div>
+    <script type="module"> 
+      import {renderizaHtml} from './scripts/quiz.js' 
+      renderizaHtml('recursividade')
+    </script>
+    <script type="module" src="scripts/logout.js"></script>
+    <script type="module" src="scripts/verificaLogin.js"></script> 
+</body>
+</html>

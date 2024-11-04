@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stiles/curso.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+    <title>Recursividade</title>
+</head>
+<header>
+  <h1>EdTech</h1>
+  <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>Assuntos de Recursividade</h1>
+
+    <h2>O que é recursividade?</h2>
+    <p>
+        A recursividade é uma técnica essencial em programação, especialmente em
+        linguagens que abraçam o estilo funcional, como o JavaScript. De maneira simples, a
+        recursividade acontece quando uma função se chama para resolver um problema, o que é
+        bastante útil para questões que podem ser quebradas em subproblemas menores,
+        semelhantes ao original.
+    </p>
+
+    <h2>Características da Recursividade</h2>
+    <ul>
+        <li><strong>Base da Recursão:</strong> É crucial que toda função recursiva tenha uma condição de parada. Essa condição é um caso base que não precisa de mais chamadas recursivas, evitando que a função entre em um loop infinito.</li>
+        <li><strong>Divisão do Problema:</strong> A função deve fragmentar o problema em partes menores e chamá-la novamente para lidar com essas subpartes.</li>
+        <li><strong>Retorno de Resultados:</strong> O resultado final deve ser a combinação dos resultados obtidos dos subproblemas.</li>
+    </ul>
+
+    <h2>Exemplo Prático de Recursividade em JavaScript</h2>
+    <p>
+        Um exemplo clássico para entender a recursividade é calcular o fatorial de um número:
+    </p>
+    <pre>
+        <code>
+const fatorial = (n) => {
+    if (n <= 1) {
+        return 1; // Condição de parada
+    }
+    return n * fatorial(n - 1); // Chamada recursiva
+};
+// Testando a função
+console.log(fatorial(5)); // 120
+console.log(fatorial(0)); // 1
+        </code>
+    </pre>
+
+    <h3>Explicação do Exemplo</h3>
+    <ul>
+        <li><strong>Condição de Parada:</strong> A função verifica se o valor de n é menor ou igual a 1. Se for, ela retorna 1, o que é vital para impedir chamadas infinitas.</li>
+        <li><strong>Chamada Recursiva:</strong> Se n é maior que 1, a função se chama com o argumento n - 1, multiplicando o resultado por n.</li>
+    </ul>
+
+    <h2>Vantagens da Recursividade</h2>
+    <ul>
+        <li><strong>Simplicidade:</strong> A recursão pode tornar o código mais legível e mais fácil de manter, especialmente em problemas que envolvem estruturas recursivas, como árvores e listas encadeadas.</li>
+        <li><strong>Elegância:</strong> Muitos algoritmos, como a busca em profundidade e os métodos de ordenação (por exemplo, Quick Sort e Merge Sort), se beneficiam de uma implementação recursiva mais intuitiva.</li>
+    </ul>
+
+    <h2>Desvantagens da Recursividade</h2>
+    <ul>
+        <li><strong>Uso de Memória:</strong> Cada chamada recursiva adiciona uma nova camada à pilha de chamadas, o que pode resultar em alto consumo de memória e, em casos extremos, provocar um erro de estouro de pilha.</li>
+        <li><strong>Performance:</strong> Algumas funções recursivas podem ser menos eficientes do que suas versões iterativas, especialmente se não forem otimizadas, como quando se utiliza memoização.</li>
+    </ul>
+
+    <h2>Aplicação:</h2>
+    <h3>1. Cálculo Matemático</h3>
+    <p>Exemplo do Cálculo do Fatorial:</p>
+    <pre>
+        <code>
+const fatorial = (n) => {
+    if (n <= 1) return 1; // Condição de parada
+    return n * fatorial(n - 1); // Chamada recursiva
+};
+console.log(fatorial(5)); // 120
+console.log(fatorial(0)); // 1
+        </code>
+    </pre>
+
+    <h3>2. Números de Fibonacci</h3>
+    <pre>
+        <code>
+const fibonacci = (n) => {
+    if (n <= 1) return n; // Condição de parada
+    return fibonacci(n - 1) + fibonacci(n - 2); // Chamada recursiva
+};
+console.log(fibonacci(6)); // 8
+        </code>
+    </pre>
+
+    <h3>3. Estruturas de Dados</h3>
+    <h4>Percorrendo uma Árvore Binária (DFS)</h4>
+    <pre>
+        <code>
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+const dfs = (node) => {
+    if (!node) return; // Condição de parada
+    console.log(node.value); // Processa o nó
+    dfs(node.left); // Chamada recursiva para o filho da esquerda
+    dfs(node.right); // Chamada recursiva para o filho da direita
+};
+// Exemplo de uso
+const root = new Node(1);
+root.left = new Node(2);
+root.right = new Node(3);
+root.left.left = new Node(4);
+root.left.right = new Node(5);
+dfs(root); // 1, 2, 4, 5, 3
+        </code>
+    </pre>
+
+    <h3>4. Algoritmos de Ordenação</h3>
+    <h4>Merge Sort</h4>
+    <pre>
+        <code>
+const merge = (left, right) => {
+    const result = [];
+    let i = 0, j = 0;
+    while (i < left.length && j < right.length) {
+        if (left[i] < right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+    return [...result, ...left.slice(i), ...right.slice(j)];
+};
+const mergeSort = (arr) => {
+    if (arr.length <= 1) return arr; // Condição de parada
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid)); // Chamada recursiva
+    const right = mergeSort(arr.slice(mid)); // Chamada recursiva
+    return merge(left, right);
+};
+console.log(mergeSort([5, 3, 8, 1, 2])); // [1, 2, 3, 5, 8]
+        </code>
+    </pre>
+
+    <h3>5. Backtracking</h3>
+    <h4>Problema das N-Rainhas</h4>
+    <pre>
+        <code>
+const isSafe = (board, row, col) => {
+    // Verifica se é seguro colocar a rainha na coluna
+    for (let i = 0; i < row; i++) {
+        if (board[i][col] === 'Q') return false;
+    }
+    // Verifica as diagonais
+    for (let i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+        if (board[i][j] === 'Q') return false;
+    }
+    for (let i = row, j = col; i >= 0 && j < board.length; i--, j++) {
+        if (board[i][j] === 'Q') return false;
+    }
+    return true;
+};
+const solveNQueensUtil = (board, row) => {
+    if (row === board.length) {
+        console.log(board.map(r => r.join(' ')).join('\n') + '\n');
+        return;
+    }
+    for (let col = 0; col < board.length; col++) {
+        if (isSafe(board, row, col)) {
+            board[row][col] = 'Q'; // Coloca a rainha
+            solveNQueensUtil(board, row + 1); // Chamada recursiva
+            board[row][col] = '.'; // Remove a rainha (backtrack)
+        }
+    }
+};
+const solveNQueens = (n) => {
+    const board = Array.from({ length: n }, () => Array(n).fill('.'));
+    solveNQueensUtil(board, 0);
+};
+solveNQueens(4);
+        </code>
+    </pre>
+
+    <h3>6. Programação Dinâmica</h3>
+    <h4>Subsequência Comum Mais Longa (LCS)</h4>
+    <pre>
+        <code>
+const lcs = (str1, str2, m, n) => {
+    if (m === 0 || n === 0) return 0; // Condição de parada
+    if (str1[m - 1] === str2[n - 1]) {
+        return 1 + lcs(str1, str2, m - 1, n - 1); // Chamada recursiva
+    }
+    return Math.max(lcs(str1, str2, m, n - 1), lcs(str1, str2, m - 1, n)); // Chamada recursiva
+};
+// Exemplo de uso
+const str1 = "AGGTAB";
+const str2 = "GXTXAYB";
+console.log(lcs(str1, str2, str1.length, str2.length)); // 4
+        </code>
+    </pre>
+
+    <h2>Considerações Finais</h2>
+    <p>
+        A recursividade é uma ferramenta poderosa na programação. Compreender seus princípios e
+        como aplicá-los pode melhorar suas habilidades de programação e permitir que você resolva
+        problemas de forma mais eficiente e elegante. No entanto, é fundamental equilibrar seu uso,
+        considerando tanto a legibilidade quanto a eficiência do código.
+    </p>
+</body>
+</html>

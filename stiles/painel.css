@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #2C3639;
+    --cor-secundaria: #DCD7C9;
+    --cor-terciaria: #A27B5C;
+    --cor-hover: #3F4E4f;
+    --cor-botao-hover: #ac7f5d;
+
+    --fonte-primaria:  'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-primaria);
+    font-family: var(--fonte-primaria);
+}
+.logo {
+  width: 80px;
+  height: 50px;
+  align-self: center;
+}
+
+header {
+  display: flex;
+    gap: 80px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    padding: 30px 0px 30px 130px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+}
+
+header h1 {
+  align-self: center;
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor-primaria);
+    padding: 10px 0;
+    font-family: var(--fonte-secundaria);
+}
+
+nav a {
+    color: var(--cor-terciaria);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav a:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.botao-logout {
+  background-color: var(--cor-primaria);
+  color: var(--cor-terciaria); 
+  font-family: var(--fonte-primaria); 
+  border: 0;
+}
+.botao-logout:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.07);
+  transition: all 0.5s;
+}
+
+
+body {
+  color: var(--cor-secundaria);
+}
+#ranking {
+  padding: 50px;
+}
+
+#rankingTabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#rankingTabela th, #rankingTabela td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#rankingTabela th {
+  background-color: var(--cor-primaria);
+}
+
+#ranking {
+  margin-top: 40px;
+}
+
+.titulo {
+  font-family: var(--fonte-primaria);
+  color: var(--cor-secundaria);
+  text-align: center;
+  padding: 50px 0 30px 0; 
+}
+
+
+.progress-container {
+  display: flex;
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  justify-content: space-between; /* Coloca as divs nas extremidades */
+  align-items: center; /* Alinha verticalmente no centro */
+  padding: 10px;
+  ;
+}
+
+
+
+.chart-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  width: 30%;
+  height: auto;
+  
+}
+.chart-wrapper h3 {
+  vertical-align: top;
+}
+
+.graficos{
+  display: flex;
+  justify-content: space-between;
+height: 400px;
+padding: 40px;
+}
+
+#progressoPizza, #progressoBarra {
+  width: 10px; /* Largura desejada */
+  height: 10px; /* Altura desejada */
+}
+
+canvas {
+  display: block;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0 20px 0;
+  background-color: var(--cor-terciaria);
+  color: var(--cor-secundaria);
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  font-family: var(--fonte-secundaria);
+}
+
+footer p {
+  background-color: var(--cor-terciaria);
+}

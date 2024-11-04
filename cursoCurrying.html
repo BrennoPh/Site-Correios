@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stiles/curso.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+    <title>O que é Currying?</title>
+</head>
+<header>
+  <h1>EdTech</h1>
+  <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>O que é Currying?</h1>
+    <p>
+        Currying é uma técnica de programação funcional que transforma uma função que aceita
+        múltiplos argumentos em uma sequência de funções que cada uma aceita um único
+        argumento. Em vez de chamar a função com todos os seus argumentos de uma vez, você a
+        chama com um argumento, e ela retorna outra função que espera o próximo argumento.
+    </p>
+    
+    <h2>Por que usar Currying?</h2>
+    <ul>
+        <li>Facilidade de Reuso: Você pode criar funções específicas a partir de funções mais gerais.</li>
+        <li>Criação de Funções Parciais: Permite fixar alguns argumentos de uma função, criando uma nova função com menos parâmetros.</li>
+        <li>Melhor Leitura: Em algumas situações, o código pode se tornar mais legível.</li>
+    </ul>
+
+    <h2>Exemplo:</h2>
+    <h3>Função Normal</h3>
+    <p>
+        Imaginemos uma função que soma três números:
+    </p>
+    <pre>
+        <code>
+function soma(a, b, c) {
+    return a + b + c;
+}
+console.log(soma(1, 2, 3)); // Saída: 6
+        </code>
+    </pre>
+    
+    <h3>Função Curried</h3>
+    <p>
+        Agora, vamos transformar essa função em uma versão curried:
+    </p>
+    <pre>
+        <code>
+function somaCurried(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        };
+    };
+}
+        </code>
+    </pre>
+    <p>
+        Aqui, <code>somaCurried</code> aceita o primeiro argumento <code>a</code> e retorna uma nova função que aceita <code>b</code>, que por sua vez retorna outra função que aceita <code>c</code>.
+    </p>
+    
+    <h2>O que mais?</h2>
+    <p>
+        O currying é uma técnica poderosa na programação funcional, permitindo a construção de
+        funções mais flexíveis e reutilizáveis. Com a prática, você poderá utilizá-la em suas
+        aplicações para tornar seu código mais limpo e eficiente.
+    </p>
+    
+    <h2>Aplicação</h2>
+    <h3>Cenário</h3>
+    <p>
+        Suponha que você queira calcular o total de um pedido em um restaurante, onde os preços
+        dos itens variam e você pode ter descontos ou taxas de serviço.
+    </p>
+
+    <h3>Passo 1: Criar uma Função Curried</h3>
+    <p>
+        Vamos criar uma função que aceita o preço do item, o desconto e a taxa de serviço.
+        Usaremos currying para permitir que a função seja chamada em etapas.
+    </p>
+    <pre>
+        <code>
+function calcularTotal(preco) {
+    return function(desconto) {
+        return function(taxaServico) {
+            const total = preco - desconto + taxaServico;
+            return total.toFixed(2); // Formata para duas casas decimais
+        };
+    };
+}
+        </code>
+    </pre>
+
+    <h3>Passo 2: Usar a Função Curried</h3>
+    <p>
+        Agora vamos usar nossa função curried para calcular o total de um pedido.
+    </p>
+    <pre>
+        <code>
+// Vamos calcular o total de um item com preço 50
+const precoItem = 50;
+// Criar uma função que fixa o preço do item
+const totalComPreco = calcularTotal(precoItem);
+// Agora, podemos aplicar um desconto de 10
+const totalComDesconto = totalComPreco(10);
+// E, por fim, adicionar uma taxa de serviço de 5
+const totalFinal = totalComDesconto(5);
+console.log(`Total do pedido: R$ ${totalFinal}`); // Saída: Total do pedido: R$ 45.00
+        </code>
+    </pre>
+
+    <h3>Passo 3: Usar de Forma Mais Compacta</h3>
+    <p>
+        Com a função curried, também podemos fazer isso de forma mais compacta:
+    </p>
+    <pre>
+        <code>
+const totalPedido = calcularTotal(50)(10)(5);
+console.log(`Total do pedido: R$ ${totalPedido}`); // Saída: Total do pedido: R$ 45.00
+        </code>
+    </pre>
+</body>
+</html>

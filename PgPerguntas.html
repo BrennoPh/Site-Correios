@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Quiz</title>
+    <link rel="stylesheet" href="stiles/PgPerguntas.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+</head>
+<body>
+    <header>
+        <img  class="logo" src="./imagens/logo.png" alt="">
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./login.html">Login</a>
+            <a href="./cursos.html">Cursos</a>
+            <a href="./PgPerguntas.html">Quizzes</a>
+            <a href="./painel.html">Painel de Progresso</a>
+            <button class="botao-logout" id="logoutButton">Logout</button>
+        </nav>
+    </header>
+
+    <main class="quiz-container">
+        <div class="linha">
+        <div class="quiz-card">
+            <h2>Quiz de Pureza</h2>
+            <p>Teste seus conhecimentos em Pureza!</p>
+            <a href="./quizPureza.html" class="btn">Iniciar Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz de Alta Ordem</h2>
+            <p>Desafie-se com questões de Alta Ordem!</p>
+            <a href="./quizAltaOrdem.html" class="btn">Iniciar Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz de Currying</h2>
+            <p>Descubra o quanto você sabe sobre Currying!</p>
+            <a href="./quizCurrying.html" class="btn">Iniciar Quiz</a>
+        </div>
+    </div>
+    <div class="linha">
+        <div class="quiz-card">
+            <h2>Quiz de imutabilidade</h2>
+            <p>Descubra o quanto você sabe sobre Imutabilidade!</p>
+            <a href="./quizImutabilidade.html" class="btn">Iniciar Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz de Recursividade</h2>
+            <p>Descubra o quanto você sabe sobre Recursividade!</p>
+            <a href="./quizRecursividade.html" class="btn">Iniciar Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz de Composição de Funções </h2>
+            <p>Descubra o quanto você sabe sobre Composição de Funções!</p>
+            <a href="./quizCompFuncao.html" class="btn">Iniciar Quiz</a>
+        </div>
+    </div>
+    </main>
+
+     <!-- Rodapé -->
+     <footer>
+        <p>&copy; 2024 Brenno, Emilly & Mariane - Todos os direitos reservados</p>
+  </footer>
+  <script type="module" src="scripts/logout.js"></script>
+  <script type="module" src="scripts/verificaLogin.js"></script> 
+</body>
+</html>

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #2C3639;
+    --cor-secundaria: #DCD7C9;
+    --cor-terciaria: #A27B5C;
+    --cor-hover: #3F4E4f;
+    --cor-botao-hover: #ac7f5d;
+    --cor-codeblock:  #363f42;
+
+    --fonte-primaria:  'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-primaria);
+    font-family: var(--fonte-secundaria);
+}
+
+header {
+  display: flex;
+    gap: 80px;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    padding: 30px 0px 30px 130px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+}
+
+header h1 {
+  align-self: center;
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor-primaria);
+    padding: 10px 0;
+    font-family: var(--fonte-secundaria);
+}
+
+nav a {
+    color: var(--cor-terciaria);
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav a:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+.botao-logout {
+  background-color: var(--cor-primaria);
+  color: var(--cor-terciaria); 
+  font-family: var(--fonte-primaria); 
+  border: 0;
+}
+.botao-logout:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.07);
+  transition: all 0.5s;
+}
+
+
+
+/*body*/
+
+/* Contêiner do quiz */
+.quiz-container {
+  max-width: 800px; /* Largura máxima do contêiner */
+  margin: 50px auto; /* Centraliza o contêiner */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 10px; /* Cantos arredondados */
+  background-color: var(--cor-primaria); /* Cor de fundo do contêiner */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Estilo para a pergunta */
+.question {
+  color: var(--cor-secundaria);
+  font-family: var(--fonte-primaria);
+  font-size: 2.5rem; /* Tamanho da fonte da pergunta */
+  margin-bottom: 20px; /* Margem abaixo da pergunta */
+}
+
+/* Estilo para as opções */
+.option {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0; /* Margem acima e abaixo das opções */
+}
+
+/* Estilo dos botões */
+button {
+  background-color: var(--cor-terciaria); /* Cor de fundo do botão */
+  color: var(--cor-secundaria); /* Cor do texto do botão */
+  border-radius: 5px; /* Cantos arredondados */
+  border: 0;
+  padding: 10px 20px; /* Espaçamento interno */
+  margin: 8px;
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  font-size: 1rem; /* Tamanho da fonte do botão */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Estilo para o botão ao passar o mouse */
+button:hover {
+  background-color: var(--cor-botao-hover); /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o nível da pergunta */
+.nivel {
+  font-size: 1rem; /* Tamanho da fonte do nível */
+  margin-bottom: 10px; /* Margem abaixo do nível */
+  color: var(--cor-secundaria); /* Cor do texto do nível */
+}
+
+.codeblock {
+  display: flex;
+  padding: 20px 0 0 0;
+  overflow: visible;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre;
+  text-align: left;
+  justify-content:flex-start;
+}
+
+.codeblock pre {
+  width: 100%;
+  background-color: var(--cor-codeblock);
+}
+
+.codeblock code {
+  color: var(--cor-secundaria);
+  background-color: var(--cor-codeblock);
+  counter-reset: line;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Progresso - Gráfico de Barras e Pizza</title>
+    <link rel="stylesheet" href="stiles/painel.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+</head>
+<!-- Cabeçalho e Título -->
+<header>
+    <img  class="logo" src="./imagens/logo.png" alt="">
+    <nav>
+      <!-- Barra de Navegação -->
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+  </nav>
+</header>
+<body>
+    <h1>Painel de Progresso do Usuário</h1>
+    <div id="pontuacao"></div>
+    <div class="graficos">
+    <canvas id="progressoPizza" ></canvas>
+    <canvas id="progressoBarra" ></canvas> <!-- Adicione um canvas para o gráfico -->
+    </div>
+    <div id="ranking">
+        <h2>Ranking dos Usuários</h2>
+        <table id="rankingTabela">
+            <thead>
+                <tr>
+                    <th>Posição</th>
+                    <th>Usuário</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas do ranking serão inseridas aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Brenno, Emilly & Mariane - Todos os direitos reservados</p>
+    </footer>
+    
+    <script type="module" src="scripts/painel.js"></script>
+    <script type="module" src="scripts/ranking.js"></script> <!-- Script para a tabela de ranking -->
+    <script type="module" src="scripts/logout.js"></script>
+    <script type="module" src="scripts/verificaLogin.js"></script>
+
+
+</body>
+</html>

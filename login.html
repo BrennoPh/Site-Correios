@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Plataforma EdTech</title>
+    <link rel="stylesheet" href="stiles/login.css">
+    <link rel="shortcut icon" href="./imagens/favicon.ico" />
+</head>
+<header>
+    <img  class="logo" src="./imagens/logo.png" alt="">
+    <nav>
+      <a href="./index.html">Home</a> 
+      <a href="./login.html">Login</a>
+      <a href="./cursos.html">Cursos</a>
+      <a href="./PgPerguntas.html">Quizzes</a>
+      <a href="./painel.html">Painel de Progresso</a>
+      <button class="botao-logout" id="logoutButton">Logout</button>
+    </nav>
+</header>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            <button id="login-google">Login com Google</button>
+            <button id="esqueci-senha">Esqueci minha senha</button>
+        </form>
+        <p>Não tem conta? <a href="./registro.html">Registre-se</a></p>
+    </div>
+    <script type="module" src="scripts/login.js"></script> <!-- Adicione aqui -->
+    <script type="module" src="scripts/logout.js"></script>
+</body>
+</html>
